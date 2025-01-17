@@ -12,7 +12,7 @@ import pathlib
 import numpy as np
 import torch
 import multiprocessing as mp
-from torch.utils.tensorboard import SummaryWriter
+# from torch.utils.tensorboard import SummaryWriter
 
 from schedulers import make_scheduler, TrainableScheduler
 from .rollout_worker import RolloutWorkerSync, RolloutWorkerAsync, RolloutBuffer
@@ -112,10 +112,10 @@ class Trainer(ABC):
 
             # gather
             results = []
-            for i, conn in enumerate(self.conns):
+            for j, conn in enumerate(self.conns):
                 res = conn.recv()
                 if isinstance(res, Exception):
-                    print(f"An exception occured in process {i}", flush=True)
+                    print(f"An exception occured in process {j}", flush=True)
                     exception = res
                     break
                 results += [res]
