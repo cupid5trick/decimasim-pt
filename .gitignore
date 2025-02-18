@@ -12,5 +12,5 @@ eval*
 test/old_test.py
 *.png
 *.zip
-*.tar.bz
+*.tar.*z
 config/test_cfg.yaml
